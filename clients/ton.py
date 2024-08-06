@@ -148,7 +148,8 @@ class TonClient(object):
         self.adventureList = list(filter(lambda ad: ad.get("adventureId", 0) > 0 and ad.get('landIndex', 0)
                                                     not in [i for i in range(1, 11)], data))
         if self.adventureList:
-            self.adventureId = random.choice(self.adventureList).get('adventureId')
+            # self.adventureId = random.choice(self.adventureList).get('adventureId')
+            self.adventureId = 182
 
     def adventure_info(self, adventureId):
         desc = '(创建完成的adventure信息)'
