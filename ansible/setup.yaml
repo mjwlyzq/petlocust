@@ -1,0 +1,40 @@
+---
+- name: initialization
+  hosts: localhost
+  connection: local
+  gather_facts: false
+  roles:
+    - { role: 'add_hosts', tags: [ 'always' ] }
+
+- name: Precheck Env
+  hosts: frontend, backend
+  connection: ssh
+  gather_facts: false
+  roles:
+    - { role: 'check' }
+
+- name: Stop PET
+  hosts: frontend, backend
+  connection: ssh
+  gather_facts: false
+  roles:
+    - { role: 'stop_all' }
+
+- name: Pull Repository
+  hosts: frontend, backend
+  connection: ssh
+  gather_facts: false
+  roles:
+    - { role: 'pull_repo' }
+
+- name: Start PET master
+  hosts: frontend
+  connection: ssh
+  roles:
+    - { role: 'start_master' }
+
+- name: Start PET worker
+  hosts: backend
+  connection: ssh
+  roles:
+    - { role: 'start_worker' }

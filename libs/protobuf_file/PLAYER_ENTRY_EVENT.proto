@@ -1,0 +1,21 @@
+syntax = "proto3";
+package protobuf;
+option java_package = "com.fiture.recording.room.event.proto";
+option java_outer_classname = "PlayerEnterEventProto";
+
+message PlayerEnterEvent {
+  int32 playerCount = 1;
+  repeated LatestEnterPlayer players = 2;
+}
+
+message LatestEnterPlayer {
+    int64 accountId = 1;
+    int32 enterOrder = 2;
+    string avatarUrl = 3;
+    string userName = 4;
+    string gender = 5;
+    int32 age = 6;
+    string location = 7;
+    repeated string roles = 8;
+    string roomPlayerType = 9;
+}

@@ -1,0 +1,11 @@
+syntax = "proto3";
+package protobuf;
+option java_package = "com.fiture.recording.room.event.proto";
+option java_outer_classname = "StartRoomEventProto";
+
+message StartRoomEvent {
+  int64 roomId = 1;
+  int64 roomItemId = 2;
+  int64 currentServiceTime = 3;
+  int64 expectStartTime = 4;
+}

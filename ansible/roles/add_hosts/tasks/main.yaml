@@ -1,0 +1,24 @@
+---
+
+
+- name: Locust Frontend {{ frontend_host }} login
+  add_host:
+    group: LOCUST
+    hostname: "frontend"
+    ansible_host: "{{ frontend_host }}"
+    ansible_user: "root"
+    vars:
+      ansible_ssh_private_key_file: "ssh/id_rsa"
+    host_key_checking: false
+  changed_when: false
+
+- name: Locust Backend {{ backend_host }} login
+  add_host:
+    group: LOCUST
+    hostname: "backend"
+    ansible_host: "{{ backend_host }}"
+    ansible_user: "root"
+    vars:
+      ansible_ssh_private_key_file: "ssh/id_rsa"
+    host_key_checking: false
+  changed_when: false

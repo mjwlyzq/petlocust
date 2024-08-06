@@ -1,0 +1,19 @@
+syntax = "proto3";
+package protobuf;
+option java_package = "com.fiture.recording.room.event.proto";
+option java_outer_classname = "RoomTimingLineSyncEventProto";
+
+message RoomTimingLineSyncEvent {
+  // 当前调度中的Item偏移量，表示当前执行到了第几个Item，取值范围：(0, roomItems.size - 1)
+  int32 itemOffset = 1;
+  // 该Item的ID
+  int64 roomItemId = 2;
+  // 该Item的调度时间
+  int64 startTime = 3;
+  // 该Item的总时长（毫秒）
+  int64 duration = 4;
+  // 该Item的当前进度（毫秒）
+  int64 progress = 5;
+  // 本次结果的服务器计算时间
+  int64 calcTime = 6;
+}

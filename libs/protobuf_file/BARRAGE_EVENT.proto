@@ -1,0 +1,27 @@
+syntax = "proto3";
+package protobuf;
+option java_package = "com.fiture.barrage.barrage.mq.event.proto";
+option java_outer_classname = "BarrageEventProto";
+
+message BarrageEvent {
+  // 弹幕体
+  repeated BarrageContent contents = 1;
+}
+
+message BarrageContent {
+ int64 serialId= 1;
+ string code = 2;
+ string text = 3;
+ // 版本号, 根据版本号过滤掉老版本弹幕，初始version = 1
+ int32 version = 4;
+ BarrageUser sender = 5;
+ BarrageUser receiver = 6;
+}
+
+message BarrageUser {
+  int64 userId = 1;
+  string username = 2;
+  string avatar = 3;
+  // ACCOUNT,MC_COACH
+  string userRole = 4;
+}

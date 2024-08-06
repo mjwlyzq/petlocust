@@ -1,0 +1,82 @@
+syntax = "proto3";
+package protobuf;
+option java_package = "com.fiture.recording.room.event.proto";
+option java_outer_classname = "PlayerTrainingMomentEventProto";
+
+message PlayerTrainingMomentEvent {
+  int64 accountId = 1;
+  // 当前心率
+  int32 heartRate = 2;
+  // 占用户最大心率百分比
+  int32 heartRatePercent = 3;
+  // 卡路里
+  int64 calories = 4;
+  // 魔力点
+  int64 burningPoints = 5;
+  // 是否识别到骨骼点
+  bool skeletonRecognized = 6;
+  // 是否是模拟心率
+  bool fakeHeartRate = 7;
+  // 当前上报时间戳(精确到毫秒)
+  int64 currentTimestamp = 8;
+  // 动作表现
+  MovementPerformance movementPerformance = 9;
+  // 房间项ID
+  int64 roomItemId = 10;
+  // 房间项类型
+  string roomItemType = 11;
+  // 房间项子类型
+  string roomItemSubType = 12;
+  // PK总得分
+  int32 score = 13;
+  // 得分单位
+  string unit = 14;
+  // 是否为服务端转发
+  bool serverTransfer = 15;
+  // 得分（今后需要将外层PK的item得分也迁移至这里）
+  repeated PlayerScore scores = 16;
+  // 反馈类型。目前只有关键帧强反馈
+  repeated Feedback feedback = 17;
+  // 表现
+  repeated Performance performance = 18;
+  // 运动记录id
+  int64 trainingRecordId = 19;
+  // 有效运动时长
+  int64 effectiveDuration = 20;
+  // 队伍得分
+//  repeated PlayerScore teamScores = 21;
+}
+
+message MovementPerformance {
+  // 动作id
+  int64 movementId = 1;
+  // 重复次数
+  int64 repeats = 2;
+  // 动作速率（每秒）
+  double rate = 3;
+}
+
+message PlayerScore {
+  // 得分
+  double score = 1;
+  // 得分单位(STAR)
+  string unit = 2;
+  // 得分类型：当前item得分(ITEM)、总和（TOTAL）、增量获得（INCR）
+  string type = 3;
+}
+
+message Feedback {
+  // 反馈类型。目前只有关键帧强反馈。see：KeyFrameStrongFeedbackEnum
+  string key = 1;
+  // 次数
+  int32 repeats = 2;
+  // 类型：实时数据（REAL_TIME）
+  string type = 3;
+}
+
+message Performance {
+  // 同频共振次数
+  int32 resonance = 1;
+  // 类型：累计（TOTAL）、当前item（ITEM）
+  string type = 2;
+}

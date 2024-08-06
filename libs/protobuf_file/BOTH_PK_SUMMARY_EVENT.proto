@@ -1,0 +1,31 @@
+syntax = "proto3";
+package protobuf;
+option java_package = "com.fiture.recording.room.event.proto";
+option java_outer_classname = "BothPkSummaryEventProto";
+
+message BothPkSummaryEvent {
+  repeated Group groups = 1;
+  repeated PkUserBasicInfo users = 2;
+}
+
+message Group {
+  string groupCode = 1;
+  int32 count = 2;
+  string encourage = 3;
+  repeated PkRankUser rankUsers = 4;
+}
+
+message PkRankUser {
+  int64 accountId = 1;
+  int32 position = 2;
+  string username = 3;
+  string avatar = 4;
+  string gender = 5;
+  string location = 6;
+  int32 count = 7;
+}
+
+message PkUserBasicInfo {
+  int64 accountId = 1;
+  int32 count = 2;
+}

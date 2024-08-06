@@ -1,0 +1,13 @@
+---
+- name: Check Docker process
+  shell: cd /home/jarvan/petlocust && docker-compose ps
+  register: compose_status
+  changed_when: false
+  tags:
+    - check
+
+- debug:
+    msg: "{{ compose_status.stdout_lines }}"
+  changed_when: false
+  tags:
+    - check

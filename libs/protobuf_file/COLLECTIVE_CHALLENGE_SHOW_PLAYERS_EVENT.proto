@@ -1,0 +1,15 @@
+syntax = "proto3";
+package protobuf;
+option java_package = "com.fiture.recording.room.event.proto";
+option java_outer_classname = "CollectiveChallengeShowPlayersEventProto";
+
+message CollectiveChallengeShowPlayersEvent {
+  // 合力挑战目标，仅在准备阶段第一次下发时有值，PK进行中不下发该值
+  int32 challengeTarget = 1;
+  repeated RoomPlayer players = 2;
+}
+
+message RoomPlayer {
+  int64 accountId = 1;
+  string avatar = 2;
+}

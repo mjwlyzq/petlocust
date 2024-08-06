@@ -1,0 +1,16 @@
+syntax = "proto3";
+package protobuf;
+option java_package = "com.fiture.recording.room.event.proto";
+option java_outer_classname = "SendOnlinePlayerEventProto";
+
+message SendOnlinePlayerEvent {
+  repeated OnlinePlayer players = 1;
+  int32 playerCount = 2;
+  int64 currentAccountId = 3;
+}
+
+message OnlinePlayer {
+  int64 accountId = 1;
+  string username = 2;
+  string avatar = 3;
+}

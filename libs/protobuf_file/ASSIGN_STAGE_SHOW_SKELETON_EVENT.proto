@@ -1,0 +1,19 @@
+syntax = "proto3";
+package protobuf;
+option java_package = "com.fiture.recording.room.event.proto";
+option java_outer_classname = "SkeletonDataEventProto";
+
+message SkeletonDataEvent {
+
+  //  账号ID
+  int64 accountId = 1;
+  // 骨骼点数据
+  string skeletonData = 2;
+
+  // 当前心率
+  int32 heartRate = 3;
+  // 占用户最大心率百分比
+  int32 heartRatePercent = 4;
+
+
+}

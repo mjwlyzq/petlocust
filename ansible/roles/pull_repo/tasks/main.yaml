@@ -1,0 +1,26 @@
+---
+- name: Git Checkout Branch To {{ repo_branch }}
+  shell: cd /home/jarvan/petlocust && git checkout {{ repo_branch }}
+  register: git_checkout
+  changed_when: false
+  tags:
+    - start
+
+- name: Git Pull From {{ repo_branch }}
+  shell: cd /home/jarvan/petlocust && git pull
+  register: git_pull
+  changed_when: false
+  tags:
+    - start
+
+- debug:
+    msg: "{{ git_checkout.stdout_lines }}"
+  changed_when: false
+  tags:
+    - start
+
+- debug:
+    msg: "{{ git_pull.stdout_lines }}"
+  changed_when: false
+  tags:
+    - start

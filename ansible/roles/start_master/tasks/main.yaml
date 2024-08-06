@@ -1,0 +1,13 @@
+---
+- name: Start Docker process
+  shell: cd /home/jarvan/petlocust && echo "FILE={{ main_file }}" > .env && docker-compose up --scale master=1 --scale worker={{ ansible_processor_vcpus -4 }} &
+  register: pet_start
+  changed_when: false
+  tags:
+    - start
+
+- debug:
+    msg: "{{ pet_start.stdout_lines }}"
+  changed_when: false
+  tags:
+    - start

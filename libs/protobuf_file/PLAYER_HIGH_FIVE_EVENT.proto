@@ -1,0 +1,12 @@
+syntax = "proto3";
+package protobuf;
+option java_package = "com.fiture.recording.room.event.proto";
+option java_outer_classname = "PlayerHighFiveEventProto";
+
+message PlayerHighFiveEvent {
+  int64 accountId = 1;
+  // 击掌结果
+  bool success = 2;
+  // 当前上报时间戳(精确到毫秒)
+  int64 currentTimestamp = 3;
+}

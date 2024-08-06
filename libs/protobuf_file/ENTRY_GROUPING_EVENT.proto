@@ -1,0 +1,33 @@
+syntax = "proto3";
+package protobuf;
+option java_package = "com.fiture.recording.room.event.proto";
+option java_outer_classname = "EntryGroupingEventProto";
+
+message EntryGroupingEvent {
+  repeated EntryRoomPlayerGroup groups = 1;
+}
+
+message EntryRoomPlayerGroup {
+  repeated EntryGroupingRoomPlayer players = 1;
+  repeated Channel channels = 2;
+  //食物code
+  //汉堡：HAMBURGER，可乐：COLA，炸鸡：FRIED_CHICKEN，奶茶：MILK_TEA，薯条：CHIPS
+  string code = 3;
+  //分组序号
+  int32 sequence = 4;
+}
+
+message EntryGroupingRoomPlayer {
+  int64 accountId = 1;
+  string username = 2;
+  string avatar = 3;
+  string location = 4;
+  int32 age = 5;
+  string gender = 6;
+}
+
+message Channel {
+  string topicSuffix = 1;
+  //广播通道：BROADCAST，控制通道：CONTROL
+  string type = 2;
+}

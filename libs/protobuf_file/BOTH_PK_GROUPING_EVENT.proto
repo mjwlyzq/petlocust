@@ -1,0 +1,21 @@
+syntax = "proto3";
+package protobuf;
+option java_package = "com.fiture.recording.room.event.proto";
+option java_outer_classname = "BothPkGroupingEventProto";
+
+message BothPkGroupingEvent {
+  repeated PkRoomPlayerGroup groups = 1;
+}
+
+message PkRoomPlayerGroup {
+  string groupCode = 1;
+  // 组内所有玩家
+  repeated PkRoomPlayer players = 2;
+  // PK进行中，app下方展示的玩家
+  repeated PkRoomPlayer showPlayers = 3;
+}
+
+message PkRoomPlayer {
+  int64 accountId = 1;
+  string avatar = 2;
+}

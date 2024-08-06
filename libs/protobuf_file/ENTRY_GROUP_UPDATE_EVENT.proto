@@ -1,0 +1,19 @@
+syntax = "proto3";
+package protobuf;
+option java_package = "com.fiture.recording.room.event.proto";
+option java_outer_classname = "EntryGroupUpdateEventProto";
+
+message EntryGroupUpdateEvent {
+  repeated EntryGroupUpdateRoomPlayer players = 1;
+}
+
+message EntryGroupUpdateRoomPlayer {
+  int64 accountId = 1;
+  string username = 2;
+  string avatar = 3;
+  string location = 4;
+  int32 age = 5;
+  string gender = 6;
+  //在线：ONLINE，离线：OFFLINE
+  string status = 7;
+}

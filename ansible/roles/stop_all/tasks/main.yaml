@@ -1,0 +1,13 @@
+---
+- name: Stop Docker process
+  shell: cd /home/jarvan/petlocust && docker-compose down
+  register: pet_stop
+  changed_when: false
+  tags:
+    - stop
+
+- debug:
+    msg: "{{ pet_stop.stdout_lines }}"
+  changed_when: false
+  tags:
+    - stop

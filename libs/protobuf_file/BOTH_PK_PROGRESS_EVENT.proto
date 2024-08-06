@@ -1,0 +1,14 @@
+syntax = "proto3";
+package protobuf;
+option java_package = "com.fiture.recording.room.event.proto";
+option java_outer_classname = "BothPkProgressEventProto";
+
+message BothPkProgressEvent {
+  repeated GroupCount groupCount = 1;
+}
+
+message GroupCount {
+  string groupCode = 1;
+  int32 count = 2;
+  string encourage = 3;
+}

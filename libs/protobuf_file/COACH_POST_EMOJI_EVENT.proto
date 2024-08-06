@@ -1,0 +1,12 @@
+syntax = "proto3";
+package protobuf;
+option java_package = "com.fiture.recording.room.event.proto";
+option java_outer_classname = "CoachPostEmojiEventProto";
+
+message CoachPostEmojiEvent {
+  repeated int64 accountIds = 1;
+  // Pace速度指导, Emoji表情
+  string guideType = 2;
+  // Emoji取值：自定义表情CODE(LIKE、COME_ON、FIST_BUMP)
+  string emojiCode = 3;
+}

@@ -1,0 +1,11 @@
+syntax = "proto3";
+package protobuf;
+option java_package = "com.fiture.recording.room.event.proto";
+option java_outer_classname = "EndRoomEventProto";
+
+message EndRoomEvent {
+  int64 roomId = 1;
+  string endType = 2;
+  string roomName = 3;
+  string endReason = 4;
+}

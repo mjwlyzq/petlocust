@@ -1,0 +1,4 @@
+frontend_host: 10.120.0.14
+backend_host: 10.104.2.140
+repo_branch: master
+main_file: task_together_v2.py

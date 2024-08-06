@@ -1,0 +1,11 @@
+syntax = "proto3";
+package protobuf;
+option java_package = "com.fiture.recording.room.event.proto";
+option java_outer_classname = "CoachGuideDetailEventProto";
+
+message CoachGuideDetailEvent {
+  // 内容，Pace取值：moreFast,slowdown,wellDone
+  string detail = 1;
+  // 互动id
+  int64 interactionId = 2;
+}

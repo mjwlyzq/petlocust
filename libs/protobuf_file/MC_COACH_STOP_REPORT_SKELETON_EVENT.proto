@@ -1,0 +1,9 @@
+syntax = "proto3";
+package protobuf;
+option java_package = "com.fiture.recording.room.event.proto";
+option java_outer_classname = "HostStopReportSkeletonEventProto";
+
+message HostStopReportSkeletonEvent {
+  // 开启的命令序号
+  int64 reportCommandId = 1;
+}

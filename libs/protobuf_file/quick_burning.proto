@@ -1,0 +1,46 @@
+syntax = "proto3";
+
+option java_package = "com.fiture.digital.mqtt.proto";
+//option java_outer_classname = "ProtobufProtocol";
+option java_multiple_files = true;
+
+enum Version {
+  V1 = 0;
+}
+
+message Protocol {
+  Version version = 1;
+  // 消息发送方app的标识
+  string srcApp = 2;
+  // 消息接收方app的标识
+  optional string dstApp = 3;
+  // 消息源id. 比如用户id, 群id, 机器sn...
+  // 具体格式由业务方协商定义
+  string srcId = 4;
+  // 目标id. 比如用户id, 群id, 机器sn...
+  // 具体格式由业务方协商定义
+  optional string dstId = 5;
+  // 消息编码. 用于区分消息类型
+  // 具体格式由业务方协商定义
+  string msgCode = 6;
+  // 消息标签, 支持逗号分割
+  optional string tags = 7;
+  // 消息特性, 预留
+  optional uint64 feature = 8;
+  // 消息id, 消息的唯一标识，可用于幂等处理
+  string msgId = 9;
+  // 时间戳
+  int64 ts = 10;
+  // 优先级, 消息的优先级
+  int32 priority = 11;
+  // 消息内容的格式. 由业务方指定.
+  // 当payload的内容是json字节流时, 使用'application/json'
+  // 当payload的内容是protobuf字节流时, 使用'application/x-protobuf'
+  // 当payload的内容是其他字节流时(如压缩后的骨骼点数据), 使用'application/octet-stream'
+  // 当payload的内容是文本消息时, 使用'text/plain'
+  string contentType = 12;
+  // 消息内容, 字节流数组形式
+  bytes payload = 13;
+  // 扩展
+  optional string ext = 14;
+}
