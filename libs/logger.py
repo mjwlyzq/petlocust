@@ -22,14 +22,14 @@ class Logger(object):
     )
     stream_handler = logging.StreamHandler()
     stream_handler.setFormatter(formatter)
-    filename = PATH('./../log')
-    if not os.path.exists(filename):
-        os.makedirs(filename)
-    file_handler = logging.FileHandler(filename=f'{filename}/all.log', encoding='utf-8')
-    file_handler.setFormatter(formatter)
+    # filename = PATH('./../log')
+    # if not os.path.exists(filename):
+    #     os.makedirs(filename)
+    # # file_handler = logging.FileHandler(filename=f'{filename}/all.log', encoding='utf-8')
+    # file_handler.setFormatter(formatter)
 
     logger.addHandler(stream_handler)
-    logger.addHandler(file_handler)
+    # logger.addHandler(file_handler)
 
     error_count = 0
 
