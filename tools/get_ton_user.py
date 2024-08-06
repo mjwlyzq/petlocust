@@ -58,7 +58,7 @@ def thread_worker(generator):
 # 主函数
 def main():
     # 创建UserIDGenerator实例
-    user_id_generator = UserIDGenerator(800000500, 800000600)
+    user_id_generator = UserIDGenerator(800000600, 800000700)
 
     # 定义线程数量
     num_threads = 5
