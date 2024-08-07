@@ -70,4 +70,4 @@ if __name__ == "__main__":
     t = TonUser()
     token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjk5OTk5OTkxMiwibmFtZSI6IiIsImFkZHJlc3MiOiIiLCJleHAiOjE3MzE0MjAwMDIsIm5iZiI6MTcyMjc4MDAwMn0.t00sk6mEUoyt8aJWr4VoJBkCEuhDi3c5NZqhnhu9vv0'
     # t.set_user(token)
-    t.init_user()
+    t.init_user_2()
