@@ -40,7 +40,9 @@ class TonUser:
         data = result.get('data')
         # 找到已经存在玩家的地块列表
         adventure_list = list(
-            filter(lambda ad: ad.get("adventureId") > 0 or (ad.get('userId') == 0 and ad.get("adventureId") == 0),
+            filter(lambda ad: ad.get("adventureId") > 0 and ad.get('landIndex', 0)
+                              not in [i for i in range(1, 11)] or (ad.get('userId') == 0 and ad.get("adventureId") == 0
+                                                                   and ad.get('landIndex', 0) not in [i for i in range(1, 11)]),
                    data))
         print([i.get("adventureId") for i in adventure_list])
         print(len(adventure_list))
