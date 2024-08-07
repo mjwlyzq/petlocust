@@ -11,7 +11,7 @@ def login(userId):
     payload = {
         "userId": userId
     }
-    r = requests.post('https://apiv2.gabby.world/api/ton/auth/login1', json=payload)
+    r = requests.post('https://apiv2.gabby.world/api/ton/auth/login1', json=payload, timeout=5)
     result = r.json()
     token = result.get('data').get('token')
     # 这里应该是调用登录接口的代码，以下为模拟过程
@@ -50,7 +50,7 @@ def thread_worker(generator):
             token = login(userId)
             # 将token添加到全局列表
             tokens.append(json.dumps(token))
-        except ValueError:
+        except Exception:
             # 当没有更多userId时退出线程
             break
 
@@ -58,7 +58,7 @@ def thread_worker(generator):
 # 主函数
 def main():
     # 创建UserIDGenerator实例
-    user_id_generator = UserIDGenerator(800000800, 800000900)
+    user_id_generator = UserIDGenerator(800001000, 800002000)
 
     # 定义线程数量
     num_threads = 5
@@ -76,6 +76,7 @@ def main():
 
     # 所有线程完成后，将tokens列表中的token写入Redis列表
     # 假设你已经有一个名为redis_client的Redis客户端实例
+    print(f'共计：{len(tokens)}')
     TonUser().set_user(*tokens)
 
 

@@ -29,9 +29,9 @@ class TonUser:
         self.rb.delete(key)
 
     def init_user(self):
-        self.map_location_info()
         self.delete_user(self.runUser)
         u = self.get_user()
+        print(len(u))
         self.rb.rpush(self.runUser, *u)
 
     def map_location_info(self):
@@ -72,4 +72,4 @@ if __name__ == "__main__":
     t = TonUser()
     token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjk5OTk5OTkxMiwibmFtZSI6IiIsImFkZHJlc3MiOiIiLCJleHAiOjE3MzE0MjAwMDIsIm5iZiI6MTcyMjc4MDAwMn0.t00sk6mEUoyt8aJWr4VoJBkCEuhDi3c5NZqhnhu9vv0'
     # t.set_user(token)
-    t.init_user_2()
+    t.init_user()
